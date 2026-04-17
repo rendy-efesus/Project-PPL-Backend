@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AircraftController;
 use App\Http\Controllers\Api\AirportController;
 use App\Http\Controllers\Api\AircraftAvailableController;
+use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\DraftQuotationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +38,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('aircraft-available')->group(function () {
         Route::get('/', [AircraftAvailableController::class, 'index']);
     });
+
+    // CUSTOMER CRUD
+    Route::apiResource('customer', CustomerController::class);
+
+    // DRAFT QUOTATION
+    Route::apiResource('draft-quotation', DraftQuotationController::class);
 });
